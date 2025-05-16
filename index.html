@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elevare Ceilings</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</head>
+<body>
+  <header>
+    <div class="container header-container">
+      <img src="logo.png" alt="Elevare Ceilings" class="logo" />
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" data-aos="fade-up">
+    <div class="container">
+      <h1>Modern Stretch Ceilings in Ireland</h1>
+      <p>Professional installation, consultations, and free measurements</p>
+      <a href="#" class="btn" onclick="document.getElementById('modal').style.display='block'">Request a Quote</a>
+    </div>
+  </section>
+
+  <section id="about" class="section" data-aos="fade-right">
+    <div class="container">
+      <h2>About Us</h2>
+      <p>Elevare Ceilings delivers stylish, high-quality stretch ceilings across Ireland. From simple to complex multi-level designs — we bring your vision to life with professionalism and precision.</p>
+    </div>
+  </section>
+
+  <section id="services" class="section dark" data-aos="fade-left">
+    <div class="container">
+      <h2>Our Services</h2>
+      <ul class="services-list">
+        <li>Stretch ceiling installation</li>
+        <li>Multi-level ceiling design</li>
+        <li>Built-in lighting systems</li>
+        <li>Acoustic solutions</li>
+        <li>Maintenance and repair</li>
+        <li>Free measurements</li>
+        <li>Interior design consultation</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact" class="section" data-aos="fade-up">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <form action="https://formspree.io/f/mayvlzlr" method="POST" class="contact-form">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="tel" name="phone" placeholder="Phone Number" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn">Send</button>
+      </form>
+      <div class="contacts">
+        <p><strong>Phone:</strong> 0833092533</p>
+        <p><strong>Email:</strong> elevareceilings@gmail.com</p>
+        <p>
+          <a href="https://www.instagram.com/elevare_ceilings" target="_blank">Instagram</a> | 
+          <a href="https://www.facebook.com/share/19dEEhrQ1v" target="_blank">Facebook</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Elevare Ceilings. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="document.getElementById('modal').style.display='none'">&times;</span>
+      <h2>Request a Quote</h2>
+      <form action="https://formspree.io/f/mayvlzlr" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="tel" name="phone" placeholder="Phone Number" required>
+        <textarea name="message" placeholder="Describe your project" required></textarea>
+        <button type="submit" class="btn">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    AOS.init();
+    window.onclick = function(event) {
+      const modal = document.getElementById('modal');
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html>
