@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ceiling Price Calculator - Elevare Ceilings</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .calculator {
+      background: #fff;
+      padding: 30px;
+      max-width: 600px;
+      margin: 40px auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    .calculator input, .calculator select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+    }
+    .calculator label {
+      font-weight: bold;
+      margin-top: 20px;
+      display: block;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-flex">
+      <img src="logo.png" alt="Elevare Ceilings" class="logo" />
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="testimonials.html">Testimonials</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="calculator.html" class="active">Calculator</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="calculator">
+    <h1>Ceiling Cost Calculator (€)</h1>
+    <label>Room Size (m²):
+      <input type="number" id="area" placeholder="e.g. 20" />
+    </label>
+
+    <label>Material:
+      <select id="material">
+        <option value="45">PVC Matte/Gloss (€45/m²)</option>
+        <option value="52">Satin (€52/m²)</option>
+        <option value="60">Translucent (€60/m²)</option>
+        <option value="75">Photo Print (€75/m²)</option>
+      </select>
+    </label>
+
+    <label>Installation Type:
+      <select id="install">
+        <option value="70">Standard (€70/m²)</option>
+        <option value="120">Acoustic (€120/m²)</option>
+      </select>
+    </label>
+
+    <label>LED Lighting (meters):
+      <input type="number" id="led" placeholder="e.g. 5" />
+    </label>
+
+    <label>Light Fixtures (qty):
+      <input type="number" id="spots" placeholder="e.g. 4" />
+    </label>
+
+    <div class="result" id="total">Total: €0</div>
+  </section>
+
+  <script>
+    const inputs = document.querySelectorAll('input, select');
+    inputs.forEach(input => input.addEventListener('input', calculate));
+
+    function calculate() {
+      const area = parseFloat(document.getElementById('area').value) || 0;
+      const material = parseFloat(document.getElementById('material').value);
+      const install = parseFloat(document.getElementById('install').value);
+      const led = parseFloat(document.getElementById('led').value) || 0;
+      const spots = parseFloat(document.getElementById('spots').value) || 0;
+
+      const ledPrice = 30;
+      const spotPrice = 25;
+      const minOrder = 300;
+
+      let total = (area * (material + install)) + (led * ledPrice) + (spots * spotPrice);
+      if (total < minOrder) total = minOrder;
+
+      document.getElementById('total').innerText = 'Total: €' + total.toFixed(2);
+    }
+  </script>
+
+  <footer>
+    <div class="container footer-flex">
+      <p>&copy; 2025 Elevare Ceilings. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
